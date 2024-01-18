@@ -120,7 +120,7 @@ export default function ChatsPage() {
         setFileName("")
       }else{
         const jsnimg = await getJsonifiedImage(img)
-        console.log("from chats",jsnimg);
+     
         dispatch(setImage({image:jsnimg}))
         setFileName(filename)
         dispatch(setMessage({message:filename}))
