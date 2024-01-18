@@ -12,25 +12,7 @@ import { useContext,useState } from "react";
 import { getNewMessage } from "@/utils/chatObjects";
 import ImageIcon from '@mui/icons-material/Image';
 
-
-// TODOS
-
-// Fail Notification implemenation Done.
-// Avatar Color fix (create a store variable for color) Done.
-// server message avatar implementation Done.
-// current room and path ui implementation Done.
-// empty message and form submisison fix Done.
-// leave a room implemetation Done.
-// sameusername prevention Done.
-// date and time for messages Done.
-//Typing and seen status implemetation
-// E2EE
-// multiple themes implementation
-// landing page (ai generated ambassador)
-// image sending
-//username limit
-
-function page() {
+export default function ChatsPage() {
     const theme = useTheme()
     const greaterThan500 = useMediaQuery('(min-width:500px)')
     const current = useSelector(state=>state.user.current)
@@ -71,7 +53,7 @@ function page() {
       
         }).filter(component=>component)
 
-    },[room?.messages])
+    },[room?.messages,username])
 
     const sendMessage = async()=>{
 
@@ -240,4 +222,3 @@ function page() {
     )
 }
 
-export default page

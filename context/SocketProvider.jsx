@@ -27,7 +27,7 @@ export default function SocketProvider({children}) {
         sock.on("fromServer",(data)=>{
             
             const {messages,roomId,password} = data
-            console.log("from socketProvider",{messages});
+          
             let Rooms = JSON.parse(localStorage.getItem("Rooms"))
 
             let foundRoom = Rooms.find(room=>room.id===roomId)
@@ -78,7 +78,7 @@ export default function SocketProvider({children}) {
                     return room
                 })
             }
-            console.log("from socket provider decypted",Rooms);
+            
             try {
                 localStorage.setItem("Rooms",JSON.stringify(Rooms))
             } catch (error) {

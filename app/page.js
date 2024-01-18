@@ -82,7 +82,7 @@ export default function Home() {
                 
                   <p style={{
                     color:theme.palette.secondary.main
-                  }} className="text-xl w-full    text-justify">Express yourself beyond words. Share your favorite memes, cherished moments, or latest discoveries with our seamless text and image sharing feature. Nexus Chat is not just a platform; it's your canvas for creativity.</p>
+                  }} className="text-xl w-full    text-justify">Express yourself beyond words. Share your favorite memes, cherished moments, or latest discoveries with our seamless text and image sharing feature. Nexus Chat is not just a platform; it&apos;s your canvas for creativity.</p>
             </div>
         </div>
         
@@ -116,7 +116,7 @@ export default function Home() {
                 
                   <p style={{
                     color:theme.palette.secondary.main
-                  }} className="text-xl w-full  text-justify"> Elevate your chatting experience by creating your private rooms. Invite friends, colleagues, or anyone you want into your exclusive space. Customize the settings to make it your own – it's like having a virtual living room tailored to your tastes.</p>
+                  }} className="text-xl w-full  text-justify"> Elevate your chatting experience by creating your private rooms. Invite friends, colleagues, or anyone you want into your exclusive space. Customize the settings to make it your own – it&apos;s like having a virtual living room tailored to your tastes.</p>
             </div>
         </div>
         <Typography variant="h6" textAlign={"center"} color={theme.palette.secondary.main} width={"100%"}>Created by <span style={{color:theme.palette.success.main}}>Vaibhav R Nayak ✨</span></Typography>

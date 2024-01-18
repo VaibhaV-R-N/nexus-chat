@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation"
 import { useDispatch } from "react-redux"
 import { setCurrent, setError } from "@/reduxStore/features/User/userSlice"
 
-export default function page() {
+export default function ConnectPage() {
     const theme = useTheme()
     const username = useSelector(state=>state.user.username)
     const publicKey = useSelector(state=>state.user.publicKey)

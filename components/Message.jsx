@@ -25,7 +25,7 @@ export default function Message({self,message,username,color,datetime,file}) {
                 setimgsrc(fileMemo.data)
 
         }
-    },[setimgsrc])
+    },[setimgsrc,fileMemo])
 
   return (
     <Box width={"100%"} height={"auto"}>
