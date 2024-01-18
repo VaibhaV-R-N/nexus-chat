@@ -1,113 +1,127 @@
-import Image from 'next/image'
+'use client'
+import { Typography,Button, Toolbar } from "@mui/material"
+import { useTheme } from  "@mui/material/styles"
+import Image from "next/image"
+import { useEffect } from "react"
+import { useState } from "react"
+import { FaLock,FaStar,FaImage } from "react-icons/fa";
+import { MdPublic,MdOutlinePublicOff } from "react-icons/md";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+  const [isClient,setIsClient]= useState(false)
+  const greaterThan500 = useMediaQuery("(min-width:900px)")
+
+  useEffect(()=>{
+    setIsClient(true)
+  },[])
+
+  const getPadding = ()=>{
+    return greaterThan500?"200px":"0"
+  }
+  const theme = useTheme()
+  return <div className="w-full h-auto relative z-10 p-2 flex flex-col gap-5 items-center justify-center">
+      {isClient?<>
+        <Toolbar/>
+        <Typography variant="h3" paddingLeft={getPadding()} paddingRight={getPadding()} textAlign={"center"} color="secondary" width={"100%"}>Welcome to <span style={{color:theme.palette.success.main}}>Nexus Chat</span>  Where Connections Take Flight!</Typography>
+        <Typography variant="h5" paddingLeft={getPadding()} paddingRight={getPadding()} textAlign={"center"} color="secondary" width={"100%"}><span style={{color:theme.palette.success.main}}>Discover</span>.<span style={{color:theme.palette.success.main}}>Create</span>.<span style={{color:theme.palette.success.main}}>Connect</span>.</Typography>
+
+        <Image alt="group of people" src="/group.png" style={{width:greaterThan500?"25%":"50%"}} className=" h-96 object-contain rounded-xl" width={500} height={500}/>
+      </>:null
+      }
+      <Typography variant="h3" paddingLeft={getPadding()} paddingRight={getPadding()} textAlign={"center"} color={theme.palette.success.main} width={"100%"}>Key Features ✨</Typography>
+
+      <div className="w-full lg:w-1/2 h-auto flex flex-col p-2 gap-20">
+        <div style={{border:"1px solid", borderColor:theme.palette.success.main}} className="w-full h-auto flex flex-col p-6 rounded-lg gap-5">
+            <div className="w-full h-auto flex  flex-row items-center justify-center gap-2">
+                  <FaLock style={{
+                    color:theme.palette.success.main
+                  }} className="h-18 w-18"/>
+                  <p style={{
+                    color:theme.palette.success.main
+                  }} className="text-3xl text-center">Anonymity</p>
+            </div>
+            <div className="w-full h-auto flex  flex-row items-center justify-between gap-2">
+                  <FaStar style={{
+                    color:theme.palette.success.main
+                  }} className="h-18 w-18"/>
+                  <p style={{
+                    color:theme.palette.secondary.main
+                  }} className="text-xl w-2/3 text-center ">No database is used hence no data is stored.</p>
+            </div>
+
+            <div className="w-full h-auto flex  flex-row items-center justify-between gap-2">
+                  <FaStar style={{
+                    color:theme.palette.success.main
+                  }} className="h-18 w-18"/>
+                  <p style={{
+                    color:theme.palette.secondary.main
+                  }} className="text-xl w-2/3 text-center ">No login is required.</p>
+            </div>
+
+            <div className="w-full h-auto flex  flex-row items-center justify-between gap-2">
+                  <FaStar style={{
+                    color:theme.palette.success.main
+                  }} className="h-18 w-18"/>
+                  <p style={{
+                    color:theme.palette.secondary.main
+                  }} className="text-xl w-2/3 text-center ">Private room text messages are encrypted</p>
+            </div>
         </div>
+        
+        <div style={{border:"1px solid", borderColor:theme.palette.success.main}} className="w-full h-auto flex flex-col p-6 rounded-lg gap-5">
+            <div className="w-full h-auto flex  flex-row items-center justify-center gap-2">
+                  <FaImage style={{
+                    color:theme.palette.success.main
+                  }} className="h-18 w-18"/>
+                  <p style={{
+                    color:theme.palette.success.main
+                  }} className="text-3xl text-center">Text and Image Sharing</p>
+            </div>
+            <div className="w-full h-auto flex  flex-row items-center justify-between gap-2">
+                
+                  <p style={{
+                    color:theme.palette.secondary.main
+                  }} className="text-xl w-full    text-justify">Express yourself beyond words. Share your favorite memes, cherished moments, or latest discoveries with our seamless text and image sharing feature. Nexus Chat is not just a platform; it's your canvas for creativity.</p>
+            </div>
+        </div>
+        
+        <div style={{border:"1px solid", borderColor:theme.palette.success.main}} className="w-full h-auto flex flex-col p-6 rounded-lg gap-5">
+            <div className="w-full h-auto flex  flex-row items-center justify-center gap-2">
+                  <MdPublic style={{
+                    color:theme.palette.success.main
+                  }} className="h-18 w-18"/>
+                  <p style={{
+                    color:theme.palette.success.main
+                  }} className="text-3xl text-center">Public room</p>
+            </div>
+            <div className="w-full h-auto flex  flex-row items-center justify-between gap-2">
+                
+                  <p style={{
+                    color:theme.palette.secondary.main
+                  }} className="text-xl w-full    text-justify">Engage in discussions, share thoughts, or simply hang out with a diverse community of like-minded individuals. Connect with people from all corners of the globe and broaden your horizons.</p>
+            </div>
+        </div>
+        
+        <div style={{border:"1px solid", borderColor:theme.palette.success.main}} className="w-full h-auto flex flex-col p-6 rounded-lg gap-5">
+            <div className="w-full h-auto flex  flex-row items-center justify-center gap-2">
+                  <MdOutlinePublicOff style={{
+                    color:theme.palette.success.main
+                  }} className="h-18 w-18"/>
+                  <p style={{
+                    color:theme.palette.success.main
+                  }} className="text-3xl text-center">Private room</p>
+            </div>
+            <div className="w-full h-auto flex  flex-row items-center justify-between gap-2">
+                
+                  <p style={{
+                    color:theme.palette.secondary.main
+                  }} className="text-xl w-full  text-justify"> Elevate your chatting experience by creating your private rooms. Invite friends, colleagues, or anyone you want into your exclusive space. Customize the settings to make it your own – it's like having a virtual living room tailored to your tastes.</p>
+            </div>
+        </div>
+        <Typography variant="h6" textAlign={"center"} color={theme.palette.secondary.main} width={"100%"}>Created by <span style={{color:theme.palette.success.main}}>Vaibhav R Nayak ✨</span></Typography>
+
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      
+  </div>
 }
