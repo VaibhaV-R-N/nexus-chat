@@ -77,9 +77,7 @@ export default function ChatsPage() {
           socket.emit("fromClient",{roomId:current,message:newMessage})
           dispatch(setMessage({message:""}))
           dispatch(setImage({image:undefined}))
-          dispatch(setError({error:"Sending..."}))
           setFileName("")
-     
         }
       }
 
@@ -157,7 +155,7 @@ export default function ChatsPage() {
             width:"90%",
             height:"80%",
             overflowY:"scroll",
-            padding:"1em"
+      
            
           }}
           direction={"column"}
