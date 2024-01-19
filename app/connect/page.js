@@ -48,12 +48,12 @@ export default function ConnectPage() {
         },
         width:{
             [theme.breakpoints.up('sm')]:{
-                width:"60%"
+                width:"90%"
             },
             [theme.breakpoints.up('xs')]:{
-                width:"80%"
+                width:"90%"
             }
-        }
+        },
     }
 
     const handleCreate = ()=>{
@@ -98,8 +98,8 @@ export default function ConnectPage() {
                     transform:"translate(-50%,-50%)",
                     position:"relative",
                     backgroundColor:theme.palette.primary.main,
-                    border:"1px solid",
-                    borderColor:theme.palette.secondary.main,
+                    // border:"1px solid",
+                    // borderColor:theme.palette.secondary.main,
                     display:"flex",
                     alignItems:"center",
                     justifyContent:"center",
@@ -113,17 +113,17 @@ export default function ConnectPage() {
                 <TextField label="RoomId" type="text" color={"secondary"} ref={roomid} sx={{...TextFieldStyle}} value={form.roomid} onChange={(e)=>{setForm({...form,roomid:e.target.value})}}/>
                 <TextField label="Password" type="password" color={"secondary"} ref={password} sx={{...TextFieldStyle}} value={form.password} onChange={(e)=>{setForm({...form,password:e.target.value})}}/>
                 <Stack sx={{
-                    width:"100%"
-                }} direction={"row"} alignItems={"center"} justifyContent={"space-evenly"}>
-                    <Button variant="outlined" size="large" color="secondary" onClick={handleCreate}>Create</Button>
-                    <Button variant="outlined" size="large" color="secondary" onClick={handleJoin}>Join</Button>
+                    width:"90%"
+                }} direction={"row"} alignItems={"center"} justifyContent={"space-between"}>
+                    <Button sx={{textTransform:"none"}} variant="outlined" size="large" color="secondary" onClick={handleCreate}>Create</Button>
+                    <Button sx={{textTransform:"none"}} variant="outlined" size="large" color="secondary" onClick={handleJoin}>Join</Button>
                 </Stack>
 
             </Paper>
 
-            <Typography variant="h5" sx={{
+            <Typography variant="h6" sx={{
                 position:'absolute',
-                bottom:"1em",
+                bottom:"5em",
                 zIndex:1200
             }}  textAlign={"center"} color={theme.palette.secondary.main} width={"100%"}>Do not share your personal information with anyone  ⚠️</Typography>
 

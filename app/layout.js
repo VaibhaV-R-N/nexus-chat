@@ -1,4 +1,4 @@
-import { Inter } from 'next/font/google'
+import { Ubuntu } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Background from '@/components/Background'
@@ -8,7 +8,7 @@ import MuiDrawer from '@/components/MuiDrawer'
 import SocketProvider from '@/context/SocketProvider'
 import Username from '@/components/Username'
 import Notification from '@/components/Notification'
-const inter = Inter({ subsets: ['latin'] })
+const ubuntu = Ubuntu({ subsets: ['latin'],weight:["300","400","500","700"] })
 
 export const metadata = {
   title: 'Nexus Chat - Seamless Communication with Public and Private Rooms',
@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     <SocketProvider>
     <MuiThemeProvider>
     
-      <body className={inter.className}>
+      <body className={ubuntu.className}>
       <Background/>
         <Navbar/>
         <MuiDrawer/>

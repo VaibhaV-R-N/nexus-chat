@@ -33,11 +33,15 @@ export default function ChatsPage() {
     const dispatch = useDispatch()
 
     useEffect(()=>{
+      chatref.current.scrollTop = chatref.current.scrollHeight
+    },[rooms])
+
+    useEffect(()=>{
       if(typeof localStorage !== undefined){
         setRooms(JSON.parse(localStorage.getItem("Rooms")))
 
       }
-      chatref.current.scrollTop = chatref.current.scrollHeight+1000
+      
     },[changed,current])
 
     const generateMessages = useMemo(()=>{
@@ -48,14 +52,8 @@ export default function ChatsPage() {
           file = JSON.parse(message.file);
          
         }
-        const datetime=new Date().toLocaleString("en-US",{
-          month:"short",
-          day:"numeric",
-          hour:"numeric",
-          minute:"numeric",
-          hour12:true
-        })
-        return <Message key={i} self={message.username === username} username={message.username} message={message.content} color={message.color} datetime={datetime} file={file}/>
+        
+        return <Message key={i} self={message.username === username} username={message.username} message={message.content} color={message.color} datetime={message.datetime} file={file}/>
       
         }).filter(component=>component)
 
@@ -72,15 +70,16 @@ export default function ChatsPage() {
           dispatch(setImage({image:undefined}))
           setFileName("")
           dispatch(setError({error:"Sending Image..."}))
-          chatref.current.scrollTop = chatref.current.scrollHeight+1000
+        
         }
         else{
           const newMessage = await getNewMessage(username,message,mycolor,undefined,current)
           socket.emit("fromClient",{roomId:current,message:newMessage})
           dispatch(setMessage({message:""}))
           dispatch(setImage({image:undefined}))
+          dispatch(setError({error:"Sending..."}))
           setFileName("")
-          chatref.current.scrollTop = chatref.current.scrollHeight+1000
+     
         }
       }
 
@@ -140,17 +139,17 @@ export default function ChatsPage() {
         display:"flex",
         alignItems:"center",
         flexDirection:"column",
-       
+        justifyContent:"space-evenly",
         position:"relative",
         [theme.breakpoints.up('lg')]:{
           width:"82%",
           left:"18%",
-          height:"90vh",
+          height:"89vh",
         },
         [theme.breakpoints.up('xs')]:{
           width:"100%",
           left:0,
-          height:"94vh",
+          height:"93vh",
         },
         zIndex:greaterThan500?1201:1200
       }} > 
@@ -171,18 +170,9 @@ export default function ChatsPage() {
 
             }
           </Stack>
-          <Stack sx={{
-            width:"100%",
-            minHeight:"22vh",
-            padding:"1em"
-          }}
-          direction={"row"}
-          alignItems={"center"}
-          justifyContent={"center"}
-          gap={1}
-          >
-            <TextField multiline rows={4} sx={{
-              width:"100%",
+          
+            <TextField multiline rows={2} sx={{
+              width:"90%",
               height:"auto",
               '& .MuiInputBase-input':{
                 color:theme.palette.secondary.main
@@ -209,11 +199,11 @@ export default function ChatsPage() {
               color="secondary"
               InputProps={{
                 endAdornment:(<InputAdornment position="end">
-                <IconButton size="large" onClick={async()=>await sendMessage()}><SendIcon color="secondary" sx={{width:"1.5em",height:"2em"}}  /></IconButton>
+                <IconButton size="large" onClick={async()=>await sendMessage()}><SendIcon color="secondary" sx={{width:"1.2em",height:"1.5em"}}  /></IconButton>
                 </InputAdornment>),
                 startAdornment:(
                   <InputAdornment position="start">
-                  <IconButton size="large" color="secondary" onClick={imageSelectionHandler} ><ImageIcon sx={{width:"2em",height:"2em"}} /></IconButton>
+                  <IconButton size="large" color="secondary" onClick={imageSelectionHandler} ><ImageIcon sx={{width:"1.5em",height:"1.5em"}} /></IconButton>
                   <input type="file"  onChange={async(e)=>{await selectedImgSetupHandler(e)}} ref={inputref} accept="image/png, image/jpg, image/jpeg, image/gif" className="hidden"/>
                   </InputAdornment>
                 )
@@ -222,7 +212,7 @@ export default function ChatsPage() {
               onChange={(e)=>{dispatch(setMessage({message:e.target.value}))}}
             />
             
-          </Stack>
+          
       </Box>
       </>
     )

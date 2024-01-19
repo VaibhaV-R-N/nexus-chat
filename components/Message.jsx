@@ -36,16 +36,19 @@ export default function Message({self,message,username,color,datetime,file}) {
             left:greaterThan500?selfMemo?"50%":"0":selfMemo?"20%":"0",
             height:"auto",
             bgcolor:theme.palette.primary.main,
-            border:"1px solid",
-            borderColor:theme.palette.secondary.main,
-            borderRadius:"1em"
+            display:"flex",
+            flexDirection:"column",
+            alignItems:selfMemo?"flex-end":"flex-start",
+            justifyContent:selfMemo?"flex-end":"flex-start",
+            borderRadius:"1em",
+       
             
-        }}>
+        }} elevation={0}>
             <CardHeader sx={{
-                width:"100%",
+                width:"auto",
                 height:"1em",
-                flex:true,
-                direction:"row",
+                display:"flex",
+                flexDirection:"row",
                 alignItems:"center",
                 justifyContent:"space-evenly",
                 color:theme.palette.success.main
@@ -75,17 +78,25 @@ export default function Message({self,message,username,color,datetime,file}) {
             <CardContent sx={{
                  width:"100%",
                  height:"auto",
-                 flex:true,
+                 display:"flex",
                  direction:"row",
-                 alignItems:"center",
-                 justifyContent:"center"
+                 alignItems:selfMemo?"flex-end":"flex-start",
+                 justifyContent:selfMemo?"flex-end":"flex-start",
+                 padding:"5px",
+                 marginTop:"1em"
             }}>
                 <Typography sx={{
-                    width:"100%",
+                    display:"inline-block",
+                    width:"auto",
+                    maxWidth:"100%",
                     height:"auto",
-                    textAlign:"justify",
+                    textAlign:"left",
                     wordBreak:"break-word",
-                    color:theme.palette.secondary.main
+                    color:theme.palette.secondary.main,
+                    border:"1px solid",
+                    borderColor:theme.palette.secondary.main,
+                    padding:"0.5em",
+                    borderRadius:"1.5em"
                 }}>{messageMemo}</Typography>
             </CardContent>
 

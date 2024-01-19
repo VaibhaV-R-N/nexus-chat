@@ -40,12 +40,7 @@ export default function SocketProvider({children}) {
                     if(messages.username === "Server"){
                         Rooms.push({id:roomId,messages:[messages]})
                     }else{
-                        // let decryptedFile
-                        // if(messages.file){
-                        //     decryptedFile = CryptoJS.AES.decrypt(JSON.stringify(messages.file),process.env.NEXT_PUBLIC_PIKACHU).toString()
-                            
-                        // }
-                        // messages.file = decryptedFile
+                      
                         const decrypted = CryptoJS.AES.decrypt(messages.content,process.env.NEXT_PUBLIC_PIKACHU).toString(CryptoJS.enc.Utf8)
                         messages.content = decrypted
                         Rooms.push({id:roomId,messages:[messages]})
@@ -59,12 +54,7 @@ export default function SocketProvider({children}) {
                     if(messages.username === "Server"){
                         foundRoom.messages.push(messages)
                     }else{
-                        // let decryptedFile
-                        // if(messages.file){
-                        //     decryptedFile = CryptoJS.AES.decrypt(JSON.stringify(messages.file),process.env.NEXT_PUBLIC_PIKACHU).toString()
-                            
-                        // }
-                        // messages.file = decryptedFile
+                  
                         const decrypted = CryptoJS.AES.decrypt(messages.content,process.env.NEXT_PUBLIC_PIKACHU).toString(CryptoJS.enc.Utf8)
                         messages.content = decrypted
                         foundRoom.messages.push(messages)

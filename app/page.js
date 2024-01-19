@@ -36,7 +36,7 @@ export default function Home() {
             <div className="w-full h-auto flex  flex-row items-center justify-center gap-2">
                   <FaLock style={{
                     color:theme.palette.success.main
-                  }} className="h-18 w-18"/>
+                  }} className="h-12 w-12"/>
                   <p style={{
                     color:theme.palette.success.main
                   }} className="text-3xl text-center">Anonymity</p>
@@ -44,7 +44,7 @@ export default function Home() {
             <div className="w-full h-auto flex  flex-row items-center justify-between gap-2">
                   <FaStar style={{
                     color:theme.palette.success.main
-                  }} className="h-18 w-18"/>
+                  }} className="h-8 w-8"/>
                   <p style={{
                     color:theme.palette.secondary.main
                   }} className="text-xl w-2/3 text-center ">No database is used hence no data is stored.</p>
@@ -53,7 +53,7 @@ export default function Home() {
             <div className="w-full h-auto flex  flex-row items-center justify-between gap-2">
                   <FaStar style={{
                     color:theme.palette.success.main
-                  }} className="h-18 w-18"/>
+                  }} className="h-8 w-8"/>
                   <p style={{
                     color:theme.palette.secondary.main
                   }} className="text-xl w-2/3 text-center ">No login is required.</p>
@@ -62,7 +62,7 @@ export default function Home() {
             <div className="w-full h-auto flex  flex-row items-center justify-between gap-2">
                   <FaStar style={{
                     color:theme.palette.success.main
-                  }} className="h-18 w-18"/>
+                  }} className="h-8 w-8"/>
                   <p style={{
                     color:theme.palette.secondary.main
                   }} className="text-xl w-2/3 text-center ">Private room text messages are encrypted</p>
@@ -73,16 +73,16 @@ export default function Home() {
             <div className="w-full h-auto flex  flex-row items-center justify-center gap-2">
                   <FaImage style={{
                     color:theme.palette.success.main
-                  }} className="h-18 w-18"/>
+                  }} className="h-12 w-20"/>
                   <p style={{
                     color:theme.palette.success.main
-                  }} className="text-3xl text-center">Text and Image Sharing</p>
+                  }} className="text-3xl text-center p-0">Text and Image Sharing</p>
             </div>
             <div className="w-full h-auto flex  flex-row items-center justify-between gap-2">
                 
                   <p style={{
                     color:theme.palette.secondary.main
-                  }} className="text-xl w-full    text-justify">Express yourself beyond words. Share your favorite memes, cherished moments, or latest discoveries with our seamless text and image sharing feature. Nexus Chat is not just a platform; it&apos;s your canvas for creativity.</p>
+                  }} className="text-xl w-full    text-center">Express yourself beyond words. Share your favorite memes, cherished moments, or latest discoveries with our seamless text and image sharing feature. Nexus Chat is not just a platform; it&apos;s your canvas for creativity.</p>
             </div>
         </div>
         
@@ -90,7 +90,7 @@ export default function Home() {
             <div className="w-full h-auto flex  flex-row items-center justify-center gap-2">
                   <MdPublic style={{
                     color:theme.palette.success.main
-                  }} className="h-18 w-18"/>
+                  }} className="h-12 w-12"/>
                   <p style={{
                     color:theme.palette.success.main
                   }} className="text-3xl text-center">Public room</p>
@@ -99,7 +99,7 @@ export default function Home() {
                 
                   <p style={{
                     color:theme.palette.secondary.main
-                  }} className="text-xl w-full    text-justify">Engage in discussions, share thoughts, or simply hang out with a diverse community of like-minded individuals. Connect with people from all corners of the globe and broaden your horizons.</p>
+                  }} className="text-xl w-full    text-center">Engage in discussions, share thoughts, or simply hang out with a diverse community of like-minded individuals. Connect with people from all corners of the globe and broaden your horizons.</p>
             </div>
         </div>
         
@@ -107,7 +107,7 @@ export default function Home() {
             <div className="w-full h-auto flex  flex-row items-center justify-center gap-2">
                   <MdOutlinePublicOff style={{
                     color:theme.palette.success.main
-                  }} className="h-18 w-18"/>
+                  }} className="h-12 w-12"/>
                   <p style={{
                     color:theme.palette.success.main
                   }} className="text-3xl text-center">Private room</p>
@@ -116,7 +116,7 @@ export default function Home() {
                 
                   <p style={{
                     color:theme.palette.secondary.main
-                  }} className="text-xl w-full  text-justify"> Elevate your chatting experience by creating your private rooms. Invite friends, colleagues, or anyone you want into your exclusive space. Customize the settings to make it your own – it&apos;s like having a virtual living room tailored to your tastes.</p>
+                  }} className="text-xl w-full  text-center"> Elevate your chatting experience by creating your private rooms. Invite friends, colleagues, or anyone you want into your exclusive space. Customize the settings to make it your own – it&apos;s like having a virtual living room tailored to your tastes.</p>
             </div>
         </div>
         <Typography variant="h6" textAlign={"center"} color={theme.palette.secondary.main} width={"100%"}>Created by <span style={{color:theme.palette.success.main}}>Vaibhav R Nayak ✨</span></Typography>

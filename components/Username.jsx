@@ -40,6 +40,7 @@ export default function Username() {
                 dispatch(setCurrent({current:"public"}))
                 router.push('/chats')
                 dispatch(setUsername({username:name}))
+                dispatch(setError({error:"Joining public room... please wait."}))
             }else{
                 dispatch(setError({error:response.error}))
             }
@@ -76,8 +77,8 @@ export default function Username() {
             transform:"translate(-50%,-50%)",
             position:'relative',
             backgroundColor:theme.palette.primary.main,
-            border:"1px solid",
-            borderColor:theme.palette.secondary.main,
+            // border:"1px solid",
+            // borderColor:theme.palette.secondary.main,
             zIndex:1203
             
         }}>
