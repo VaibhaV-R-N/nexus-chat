@@ -48,7 +48,7 @@ export default function ChatsPage() {
           file = JSON.parse(message.file);
          
         }
-        datetime=new Date().toLocaleString("en-US",{
+        const datetime=new Date().toLocaleString("en-US",{
           month:"short",
           day:"numeric",
           hour:"numeric",
