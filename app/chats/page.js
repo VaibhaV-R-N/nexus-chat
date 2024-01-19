@@ -48,8 +48,14 @@ export default function ChatsPage() {
           file = JSON.parse(message.file);
          
         }
-          
-        return <Message key={i} self={message.username === username} username={message.username} message={message.content} color={message.color} datetime={message.datetime} file={file}/>
+        datetime=new Date().toLocaleString("en-US",{
+          month:"short",
+          day:"numeric",
+          hour:"numeric",
+          minute:"numeric",
+          hour12:true
+        })
+        return <Message key={i} self={message.username === username} username={message.username} message={message.content} color={message.color} datetime={datetime} file={file}/>
       
         }).filter(component=>component)
 
@@ -110,8 +116,8 @@ export default function ChatsPage() {
       const mimetype = types.find((type)=>{
         return type === img.type
       })
-      if(img.size > 5000000){
-        dispatch(setError({error:"Image size exceeds the allowed size which is 5MB..."}))
+      if(img.size > 3000000){
+        dispatch(setError({error:"Image size exceeds the allowed size which is 3MB..."}))
         dispatch(setImage({image:undefined}))
         setFileName("")
       }else if(!mimetype){

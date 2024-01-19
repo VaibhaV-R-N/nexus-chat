@@ -49,13 +49,7 @@ export const getNewMessage = async(username,message,color,file,current)=>{
         username,
         content,
         color,
-        datetime:new Date().toLocaleString("en-US",{
-            month:"short",
-            day:"numeric",
-            hour:"numeric",
-            minute:"numeric",
-            hour12:true
-        }),
+       
         file: file || undefined
     }
 }
