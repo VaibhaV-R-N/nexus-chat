@@ -16,7 +16,7 @@ export default function SocketProvider({children}) {
 
     useEffect(()=>{
 
-        const sock = io("wss://https://nexus-server-mw5q.onrender.com/",{
+        const sock = io("wss://nexus-server-mw5q.onrender.com/",{
             headers:{
                 "user-agent":"mozilla"
             }
