@@ -16,7 +16,7 @@ export default function SocketProvider({children}) {
 
     useEffect(()=>{
 
-        const sock = io("wss://onyx-time-parka.glitch.me/",{
+        const sock = io("wss://https://nexus-server-mw5q.onrender.com/",{
             headers:{
                 "user-agent":"mozilla"
             }
